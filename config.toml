@@ -1,6 +1,0 @@
-[theme]
-primaryColor = "orange"
-backgroundColor = "#0e1117"  # Dark background color (black theme)
-secondaryBackgroundColor = "#262730"  # Dark secondary background color
-textColor = "white"  # White text color
-font = "sans serif"  # Default font
