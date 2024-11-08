@@ -115,18 +115,6 @@ def display_recent_searches(city):
             get_weather(recent_city)
 
 
-# Cohere chatbot interaction function
-def interact_with_cohere(query):
-    try:
-        # Use Cohere to generate a response based on the user's input
-        response = cohere_client.generate(
-            model="command-xlarge",  # Model ID for Cohere's large model
-            prompt=query,
-            max_tokens=150  # Limit the number of tokens (characters) for the response
-        )
-        return response.generations[0].text.strip()  # Return the generated text response
-    except Exception as e:
-        return f"Error interacting with Cohere API: {e}"
 
 
 # Main function to control page navigation
@@ -148,17 +136,6 @@ def main():
                 get_weather(city)
                 display_recent_searches(city)
 
-            # Chatbot for general queries
-            st.title("Ask me..")
-            st.write("Ask me anything and I'll do my best to answer!")
-            
-            # Input field for user query
-            user_query = st.text_input("How can i help you...")
-            
-            if user_query:
-                # Send the user query to Cohere and display the bot's response
-                bot_response = interact_with_cohere(user_query)
-                st.write(f"**Response:** {bot_response}")
 
             # Logout button to log out and return to the login page
             if st.button("Logout", key="logout_button"):
